@@ -100,7 +100,10 @@ bio.display = function() {
         var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts[contact].twitter);
         var formattedLocation = HTMLlocation.replace("%data%", bio.contacts[contact].location);
         $("#topContacts").append(formattedMobile,formattedMobile,formattedGithub,formattedTwitter,formattedLocation);
+        $("#lets-connect").append(formattedMobile,formattedMobile,formattedGithub,formattedTwitter,formattedLocation);
     }
+
+
 
 };
 
