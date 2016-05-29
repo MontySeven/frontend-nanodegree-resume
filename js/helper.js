@@ -179,9 +179,20 @@ function initializeMap() {
     });
 
     // hmmmm, I wonder what this is about...
-    google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
-    });
+    // var joziString = "<div>"+"<h3>Johannesburg</h3>"+"<em>City in South Africa</em>"+"<p>Johannesburg, South Africa's biggest city and capital of its inland Gauteng province, began as a 19th-century gold-mining settlement. It's known for Soweto township, a sprawling jumble of African workers’ houses that was once home to Nelson Mandela and Desmond Tutu. Mandela’s former residence is now the Nelson Mandela National Museum. To the northeast, Herman Ekstein Park encompasses a boating lake and Johannesburg Zoo.</p>"+"</div>";
+
+    // var ptaString = "<div>"+"<h3>Pretoria</h3>"+"<em>Capital of South Africa</em>"+"<p>Pretoria (Tshwane), in the Gauteng Province, is the administrative capital of South Africa. Known as "Jacaranda City" for its thousands of jacaranda trees, the city is also known for its universities and government buildings. The semicircular Union Buildings encompass the president's offices and hosted Nelson Mandela's inauguration. Nearby is the massive Voortrekker Monument, honoring 19th-century Afrikaans settlers from the Cape Colony.</p>"+"</div>";
+
+    // var cityString = "<div>"+"<h3>Johannesburg/Pretoria</h3>"+"<em>City in South Africa</em>"+"<p>Both City's in South Africa</p>"+"</div>";
+
+    // var infoWindow = new google.maps.InfoWindow({
+    //     content: cityString
+    // });
+
+    // google.maps.event.addListener(marker, 'click', function() {
+    //   infowindow.open(marker);
+
+    // });
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
