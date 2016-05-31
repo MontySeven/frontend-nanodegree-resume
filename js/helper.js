@@ -62,8 +62,8 @@ var googleMap = '<div id="map"></div>';
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
-$(document).ready(function() {
-  $('button').click(function() {
+$(document).ready( function() {
+  $('button').click( function() {
     var $name = $('#name');
     var iName = inName($name.text()) || function(){};
     $name.html(iName);
@@ -130,7 +130,7 @@ function initializeMap() {
     var locations = [];
 
     // adds the single location property from bio to the locations array
-    locations.push(bio.contacts[0].location);
+    locations.push(bio.contacts.location);
 
     // iterates through school locations and appends each location to
     // the locations array. Note that forEach is used for array iteration
@@ -179,20 +179,26 @@ function initializeMap() {
     });
 
     // hmmmm, I wonder what this is about...
-    // var joziString = "<div>"+"<h3>Johannesburg</h3>"+"<em>City in South Africa</em>"+"<p>Johannesburg, South Africa's biggest city and capital of its inland Gauteng province, began as a 19th-century gold-mining settlement. It's known for Soweto township, a sprawling jumble of African workers’ houses that was once home to Nelson Mandela and Desmond Tutu. Mandela’s former residence is now the Nelson Mandela National Museum. To the northeast, Herman Ekstein Park encompasses a boating lake and Johannesburg Zoo.</p>"+"</div>";
 
-    // var ptaString = "<div>"+"<h3>Pretoria</h3>"+"<em>Capital of South Africa</em>"+"<p>Pretoria (Tshwane), in the Gauteng Province, is the administrative capital of South Africa. Known as "Jacaranda City" for its thousands of jacaranda trees, the city is also known for its universities and government buildings. The semicircular Union Buildings encompass the president's offices and hosted Nelson Mandela's inauguration. Nearby is the massive Voortrekker Monument, honoring 19th-century Afrikaans settlers from the Cape Colony.</p>"+"</div>";
+    switch (name) {
+      case "Pretoria, South Africa":
+        cityString = "<div>"+"<h3>Pretoria</h3>"+"<em>Capital of South Africa</em>"+"<p>Pretoria (Tshwane), in the Gauteng Province, is the administrative capital of South Africa. Known as 'Jacaranda City' for its thousands of jacaranda trees, the city is also known for its universities and government buildings. The semicircular Union Buildings encompass the president's offices and hosted Nelson Mandela's inauguration. Nearby is the massive Voortrekker Monument, honoring 19th-century Afrikaans settlers from the Cape Colony.</p>"+"</div>";
+        break;
+      case "Johannesburg, South Africa":
+        cityString = "<div>"+"<h3>Johannesburg</h3>"+"<em>City in South Africa</em>"+"<p>Johannesburg, South Africa's biggest city and capital of its inland Gauteng province, began as a 19th-century gold-mining settlement. It's known for Soweto township, a sprawling jumble of African workers’ houses that was once home to Nelson Mandela and Desmond Tutu. Mandela’s former residence is now the Nelson Mandela National Museum. To the northeast, Herman Ekstein Park encompasses a boating lake and Johannesburg Zoo.</p>"+"</div>";
+        break;
 
-    // var cityString = "<div>"+"<h3>Johannesburg/Pretoria</h3>"+"<em>City in South Africa</em>"+"<p>Both City's in South Africa</p>"+"</div>";
+      default:
+        cityString = name;
+    }
 
-    // var infoWindow = new google.maps.InfoWindow({
-    //     content: cityString
-    // });
+    var infoWindow = new google.maps.InfoWindow({
+        content: cityString
+    });
 
-    // google.maps.event.addListener(marker, 'click', function() {
-    //   infowindow.open(marker);
-
-    // });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map, marker);
+    });
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
