@@ -101,6 +101,7 @@ bio.display = function() {
 };
 
 education.display = function() {
+
     for (school=0; school < education.schools.length; school++){
         $("#education").append(HTMLschoolStart);
         var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name);
@@ -109,16 +110,17 @@ education.display = function() {
         var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
         var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors);
         $(".education-entry:last").append(formattedName + formattedDegree, formattedDates, formattedLocation, formattedMajor);
+    }
 
-    };
-
-    $(".education-entry:last").append(HTMLonlineClasses);
-    var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.OnlineCourses[0].title);
-    var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.OnlineCourses[0].school);
-    var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.OnlineCourses[0].date);
-    var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.OnlineCourses[0].url);
-    $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates + formattedOnlineURL);
-
+    $("#education").append(HTMLonlineClasses);
+    for (course=0; course < education.OnlineCourses.length; course++){
+        $("#education").append(HTMLschoolStart);
+        var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.OnlineCourses[course].title);
+        var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.OnlineCourses[course].school);
+        var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.OnlineCourses[course].date);
+        var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.OnlineCourses[course].url);
+        $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates + formattedOnlineURL);
+    }
 };
 
 work.display = function() {
